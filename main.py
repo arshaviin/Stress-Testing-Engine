@@ -18,7 +18,7 @@ total_investment = 100000  # Baseline capital
 
 # === Step 2: Fetch spot prices from 1 month ago ===
 spot_data = {}
-print("📡 Fetching spot prices from 1 month ago (pre-crash)...")
+print("Fetching spot prices from 1 month ago (pre-crash)...")
 for sym in symbols:
     try:
         ticker = yf.Ticker(sym)
@@ -32,7 +32,7 @@ for sym in symbols:
     except Exception as e:
         print(f"⚠️ Failed to fetch {sym}: {e}")
 
-print("✅ 1-Month-Ago Spot Prices:", spot_data)
+print("1-Month-Ago Spot Prices:", spot_data)
 
 # === Step 3: Generate exotic-rich portfolio ===
 for _ in range(20):
@@ -112,11 +112,11 @@ for pos in portfolio.get_positions():
 margin = estimate_margin(all_pnls, method="worst_case")
 loss_pct = (margin / total_investment) * 100
 
-print(f"\n🧮 Estimated Margin Requirement: ${margin:.2f} ({loss_pct:.2f}% of $100K portfolio)")
-print(f"💸 Total Option Cost: ${total_cost:.2f} ({(total_cost / total_investment) * 100:.2f}% of portfolio value)")
+print(f"\n Estimated Margin Requirement: ${margin:.2f} ({loss_pct:.2f}% of $100K portfolio)")
+print(f" Total Option Cost: ${total_cost:.2f} ({(total_cost / total_investment) * 100:.2f}% of portfolio value)")
 
 # === Step 6: Greeks Summary ===
-print("\n📊 Portfolio Greeks Summary:")
+print("\nPortfolio Greeks Summary:")
 for g, val in greeks_summary.items():
     print(f"  {g.capitalize()}: {round(val, 4)}")
 
