@@ -58,7 +58,7 @@ def display_scenario_table(scenarios, pnl_list, capital_base=100000, top_n=10):
 
     df_sorted = df.sort_values(by='PnL ($)').reset_index(drop=True)
 
-    print("\n▶ Worst-Case Scenarios:")
+    print("\n Worst-Case Scenarios:")
     print(df_sorted.head(top_n))
 
     # Summary stats
@@ -67,7 +67,7 @@ def display_scenario_table(scenarios, pnl_list, capital_base=100000, top_n=10):
     var_95 = np.percentile(pnl_array, 5)
     es_95 = pnl_array[pnl_array <= var_95].mean()
 
-    print("\n▶ Risk Summary:")
+    print("\n Risk Summary:")
     print(f"  Mean P&L:     ${mean:,.2f}")
     print(f"  95% VaR:      ${var_95:,.2f}")
     print(f"  95% ES:       ${es_95:,.2f}")
